@@ -1,11 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
+import { deleteMovie } from '../actions/movieActions';
 
 const Movie = (props) => {
     const { id } = useParams();
     const { push } = useHistory();
 
-    const movies = [];
+    const movies = props.movies;
     const movie = movies.find(movie=>movie.id===Number(id));
     
     return(<div className="modal-page col">
